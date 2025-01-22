@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State private var selectedTab: Tab = .all
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack{
+            ScrollView{
+                VStack(spacing: 12){
+                    MostReadView()
+                    SegmentedControl(selectedTab: $selectedTab)
+                    BookView(selectedTab: $selectedTab)
+                }
+            }
+            
+        }
+        
     }
 }
 
